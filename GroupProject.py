@@ -23,43 +23,24 @@ def prepare():
             print("Please enter a valid input! \n")
         
 def act():
-    foodList = ["Feeding the Valley Food Bank"]
-    housingList = ["The Housing Authority of Columbus, GA", "Emergency Housing Voucher Program","Habitat for Humanity"]
-    clothingList = ["Goodwill","Plato's Closet"]
-    jobList = ["Goodwill"]
-    monetaryList = ["GEMA Grants"]
-    generalList = ["Homeless Resource Network"]
+    Acts = {
+        "food" : ["Feeding the Valley Food Bank"],
+       "housing" : ["The Housing Authority of Columbus, GA", "Emergency Housing Voucher Program","Habitat for Humanity"],
+        "clothing" : ["Goodwill","Plato's Closet"],
+        "job" : ["Goodwill"],
+        "monetary" : ["GEMA Grants"],
+        "general" : ["Homeless Resource Network"]
+    }
+   
     act = True
     while act:
         actType = input("What information would you like on what to do post-disaster? Type 'Food' for food assistance, 'Housing' for housing assistance, 'Clothing' for low-cost clothing options, 'Job' for job assistance, 'Monetary' for monetary assistance, 'General' for general assistance, or 'Back' to return to the previous menu: ").lower()
         print()
-        if actType == "food":
-            for i, food in enumerate(foodList):
-                print(f"{i+1}.",food)
+        try:
+            for i in Acts[actType]:
+                print(i)
             print()
-        elif actType == "housing":
-            for i, housing in enumerate(housingList):
-                print(f"{i+1}.",housing)
-            print()
-        elif actType == "clothing":
-            for i, clothing in enumerate(clothingList):
-                print(f"{i+1}.",clothing)
-            print()
-        elif actType == "job":
-            for i, job in enumerate(jobList):
-                print(f"{i+1}.",job)
-            print()
-        elif actType == "monetary":
-            for i, monetary in enumerate(monetaryList):
-                print(f"{i+1}.",monetary)
-            print()
-        elif actType == "general":
-            for i, general in enumerate(generalList):
-                print(f"{i+1}.",general)
-            print()
-        elif actType == "back":
-            act = False
-        else:
+        except:
             print("Please enter a valid input! \n")
             
                 
